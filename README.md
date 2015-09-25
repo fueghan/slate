@@ -1,3 +1,9 @@
+To deploy in CanalTP's pages
+============================
+
+To build the doc and publish it to github pages: 
+LC_ALL=en_US rake publish
+
 Slate
 ========
 
