@@ -743,7 +743,7 @@ If only one is defined an isochrone is computed with every possible journeys fro
 
 <p>Here is a typical journey, all sections are detailed below</p>
 
-<p><img style="max-width:100%;" src="typical_itinerary.png" alt="typical_itinerary.png"></p>
+<p><img alt="caption text" src="images/typical_itinerary.png" /></p>
 
 <h3 id="main-response-object">Main response object</h3>
 
@@ -924,7 +924,7 @@ If only one is defined an isochrone is computed with every possible journeys fro
 <tr>
 <td></td>
 <td></td>
-<td><img alt="Caption text" src="stay_in.png" /></td>
+<td><img alt="Caption text" src="images/stay_in.png" /></td>
 </tr>
 <tr>
 <td></td>
@@ -974,7 +974,7 @@ If only one is defined an isochrone is computed with every possible journeys fro
 <tr>
 <td></td>
 <td></td>
-<td><img alt="Caption text" src="crow_fly.png" /></td>
+<td><img alt="Caption text" src="images/crow_fly.png" /></td>
 </tr>
 <tr>
 <td></td>
@@ -1341,63 +1341,321 @@ If only one is defined an isochrone is computed with every possible journeys fro
 </tr>
 </tbody></table>
 
-          <h1 id="errors">Errors</h1>
+<h1 id="test-d-39-affichage">Test d&#39;affichage</h1>
 
-<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files&hellip;just save them to the `includes` folder and add them to the top of your `index.md`&rsquo;s frontmatter. Files are included in the order listed.</aside>
+<p>All the resources return a response containing a links object, a paging object, and the requested object.</p>
 
-<p>The Kittn API uses the following error codes:</p>
+<ul>
+<li><strong>Coverage</strong> : List of the region covered by navitia</li>
+</ul>
+
+<p><strong>List of the areas covered by navitia</strong> </p>
+
+<p><code class="prettyprint">get</code> /coverage </p>
+
+<p></br></p>
+
+<p><strong>Information about a specific region</strong> </p>
+
+<aside class="notice">
+Change value <em>region_id</em>
+</aside>
+
+<p><code class="prettyprint">get</code> /coverage/<em>region_id</em></p>
+
+<p></br></p>
+
+<p><strong>Information about a specific region</strong> </p>
+
+<blockquote>
+<p>Change values <em>region_id</em> and <em>lon;lat</em></p>
+</blockquote>
+
+<p><code class="prettyprint">get</code> /coverage/<em>region_id</em>/coords/<em>lon;lat</em></p>
+
+<h2 id=""></br></h2>
+
+<ul>
+<li><strong>Public transportation objects</strong> : List of the public transport objects of a region</li>
+</ul>
+
+<aside class="notice">
+Collection of objects of a region
+</aside>
+
+<p><code class="prettyprint">get</code> /coverage/<em>region_id</em>/<em>collection_name</em>                 </p>
+
+<aside class="notice">
+Information about a specific region 
+</aside>
+
+<p><code class="prettyprint">get</code> /coverage/<em>region_id</em>/<em>collection_name</em>/<em>object_id</em>    </p>
+
+<aside class="notice">
+Collection of objects of a region
+</aside>
+
+<p><code class="prettyprint">get</code> /coverage/<em>lon;lat</em>/<em>collection_name</em>           </p>
+
+<aside class="notice">
+Information about a specific region 
+</aside>
+
+<p><code class="prettyprint">get</code> /coverage/<em>lon;lat</em>/<em>collection_name</em>/<em>object_id</em>     </p>
+
+<h2 id=""></br></h2>
+
+<ul>
+<li><strong>Journeys (v0)</strong> : Compute journeys
+List of journeys</li>
+</ul>
 
 <table><thead>
 <tr>
-<th>Error Code</th>
-<th>Meaning</th>
+<th></th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
-<td>400</td>
-<td>Bad Request &ndash; Your request sucks</td>
+<td><code class="prettyprint">get</code> /coverage/<em>resource_path</em>/journeys</td>
+<td>List of journeys</td>
 </tr>
 <tr>
-<td>401</td>
-<td>Unauthorized &ndash; Your API key is wrong</td>
-</tr>
-<tr>
-<td>403</td>
-<td>Forbidden &ndash; The kitten requested is hidden for administrators only</td>
-</tr>
-<tr>
-<td>404</td>
-<td>Not Found &ndash; The specified kitten could not be found</td>
-</tr>
-<tr>
-<td>405</td>
-<td>Method Not Allowed &ndash; You tried to access a kitten with an invalid method</td>
-</tr>
-<tr>
-<td>406</td>
-<td>Not Acceptable &ndash; You requested a format that isn&rsquo;t json</td>
-</tr>
-<tr>
-<td>410</td>
-<td>Gone &ndash; The kitten requested has been removed from our servers</td>
-</tr>
-<tr>
-<td>418</td>
-<td>I&rsquo;m a teapot</td>
-</tr>
-<tr>
-<td>429</td>
-<td>Too Many Requests &ndash; You&rsquo;re requesting too many kittens! Slow down!</td>
-</tr>
-<tr>
-<td>500</td>
-<td>Internal Server Error &ndash; We had a problem with our server. Try again later.</td>
-</tr>
-<tr>
-<td>503</td>
-<td>Service Unavailable &ndash; We&rsquo;re temporarially offline for maintanance. Please try again later.</td>
+<td><code class="prettyprint">get</code> /journeys</td>
+<td>List of journeys</td>
 </tr>
 </tbody></table>
+
+<h2 id=""></br></h2>
+
+<ul>
+<li><strong>Journeys (v1)</strong> : Compute journeys</li>
+</ul>
+
+<p><code class="prettyprint">List of journeys</code> </p>
+
+<table><thead>
+<tr>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">get</code> /coverage/<em>resource_path</em>/journeys</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">get</code> /journeys</td>
+</tr>
+</tbody></table>
+
+<h2 id=""></br></h2>
+
+<ul>
+<li><strong>Journeys (v2)</strong> : Compute journeys</li>
+</ul>
+
+<p><code class="prettyprint">List of journeys</code> </p>
+
+<table><thead>
+<tr>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">get</code> /coverage/<em>resource_path</em>/journeys</td>
+</tr>
+<tr>
+<td><code class="prettyprint">get</code> /journeys</td>
+</tr>
+</tbody></table>
+
+<h2 id=""></br></h2>
+
+<ul>
+<li><strong>Journeys (v3)</strong> : Compute journeys</li>
+</ul>
+
+<aside class="notice">
+ List of journeys
+</aside>
+
+<table><thead>
+<tr>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">get</code> /coverage/<em>resource_path</em>/journeys</td>
+</tr>
+<tr>
+<td><code class="prettyprint">get</code> /journeys</td>
+</tr>
+</tbody></table>
+
+<h2 id=""></br></h2>
+
+<h3 id="ticket-object-v0">Ticket object (v0)</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>Id of the ticket</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>Name of the ticket</td>
+</tr>
+<tr>
+<td>found</td>
+<td>boolean</td>
+<td>False if unknown ticket, True otherwise</td>
+</tr>
+<tr>
+<td>cost</td>
+<td><a href="#cost">cost</a></td>
+<td>Cost of the ticket</td>
+</tr>
+<tr>
+<td>links</td>
+<td>array of <a href="#link">link</a></td>
+<td>Link to the <a href="#section">section</a> using this ticket</td>
+</tr>
+</tbody></table>
+
+<h2 id=""></br></h2>
+
+<h3 id="ticket-object-v1">Ticket object (v1)</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>Id of the ticket</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>Name of the ticket</td>
+</tr>
+<tr>
+<td>found</td>
+<td>boolean</td>
+<td>False if unknown ticket, True otherwise</td>
+</tr>
+<tr>
+<td>cost</td>
+<td><a href="#cost">cost</a></td>
+<td>Cost of the ticket</td>
+</tr>
+<tr>
+<td>links</td>
+<td>array of <a href="#link">link</a></td>
+<td>Link to the <a href="#section">section</a> using this ticket</td>
+</tr>
+</tbody></table>
+
+          <h1 id="errors">Errors</h1>
+
+<aside class="notice">When there&rsquo;s an error you&rsquo;ll receive a response with a error object
+containing an id
+</aside>
+
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"error"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bad_filter"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ptref : Filters: Unable to find object"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="code-40x">Code 40x</h2>
+
+<p>This errors appears when there is an error in the request</p>
+
+<p>The are two possible 40x http codes :</p>
+
+<ul>
+<li>  Code 404:</li>
+</ul>
+
+<table><thead>
+<tr>
+<th>Error id</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date_out_of_bounds</td>
+<td>When the given date is out of bounds of the production dates of the region</td>
+</tr>
+<tr>
+<td>no_origin</td>
+<td>Couldn&rsquo;t find an origin for the journeys</td>
+</tr>
+<tr>
+<td>no_destination</td>
+<td>Couldn&rsquo;t find an destination for the journeys</td>
+</tr>
+<tr>
+<td>no_origin_nor_destination</td>
+<td>Couldn&rsquo;t find an origin nor a destination for the journeys</td>
+</tr>
+<tr>
+<td>unknown_object</td>
+<td>As it&rsquo;s said</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li>  Code 400:</li>
+</ul>
+
+<table><thead>
+<tr>
+<th>Error id</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>bad_filter</td>
+<td>When you use a custom filter</td>
+</tr>
+<tr>
+<td>unable_to_parse</td>
+<td>When you use a mal-formed custom filter</td>
+</tr>
+</tbody></table>
+
+<h2 id="code-50x">Code 50x</h2>
+
+<p>Ouch. Technical issue :/</p>
+
+<h2 id="code-204">Code 204</h2>
+
+<p>When your request is good but we are not able to find a journey</p>
 
       </div>
       <div class="dark-box">
